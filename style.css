@@ -31,6 +31,7 @@ body {
     /* Top é a parte de cima do site, se eu colocar bottom ele vai ficar em baixo*/
     background: rgba(15, 23, 42, 0.8);
     width: 100%;
+    min-width: 200px;
     z-index: 100;
     /*Z index define quem vai ficar na frente de todo mundo*/
     padding: 1.5rem;
