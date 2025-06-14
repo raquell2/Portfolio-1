@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Scroll é o rolamento do mouse, a opção smooth é para deixar mais suave*/
+}
+
+:root {
+    /* Root é a raiz do html, aqui eu defino as cores padrões que vou usar. o "-- eu crio uma variavel com nome e sempre que eu precisar é só chama-lá"*/
+    --primaria: #4f46e5;
+    --secundaria: #7c3ead;
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --vidro: rgba(255, 255, 255, 0.1);
+    --claro: #e2e8f0;
+}
+
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+.navegacao {
+    position: fixed;
+    top: 0;
+    /* Top é a parte de cima do site, se eu colocar bottom ele vai ficar em baixo*/
+    background: rgba(15, 23, 42, 0.8);
+    width: 100%;
+    z-index: 100;
+    /*Z index define quem vai ficar na frente de todo mundo*/
+    padding: 1.5rem;
+    /*Padding é espaçamento para não ficar grudado um no outro*/
+}
+
+.menu {
+    display: flex;
+    /*Coloca o item um do lado do outro */
+    list-style: none;
+    gap: 3rem;
+    /*Gap é o espaçamento entre os itens*/
+    justify-content: center;
+    /*Justify content é para centralizar os itens*/
+}
+
+.menu-link {
+    color: var(--claro);
+    text-decoration: none;
+    /*Tira o sublinhado do link*/
+    font-weight: 500;
+    /*Define o peso da fonte, quanto mais alto mais grosso fica*/
+    position: relative;
+    /*Posição relativa é para que eu possa usar o pseudo elemento depois*/
+    padding: 0.5rem;
+}
+
+/*Criando a animação dos menus
+ after = depois  before = antes*/
+
+.menu-link::after {
+    content: '';
+    /*o content é obrigatório no before*/
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+}
+
+.menu-link:hover::after {
+    width: 100%;
+    /*Quando passar o mouse o tamanho do link vai aumentar*/
+    transition: width 0.3s ease;
+    /*A transição é para deixar mais suave, o tempo é de 0.3 segundos e a função ease é para deixar mais suave*/
+}
+
+.cabecalho {
+    min-height: 100vh;
+    /*Min height é a altura mínima da tela, se eu colocar height ele vai ficar fixo*/
+    display: flex;
+    /*Flex é para colocar os itens um do lado do outro*/
+    justify-content: center;
+    /*Justify content é para centralizar os itens*/
+    align-items: center;
+    /*Align items é para alinhar os itens verticalmente*/
+    flex-direction: column;
+    /*Flex direction é para definir a direção dos itens, se eu colocar row ele vai ficar um do lado do outro*/
+    text-align: center;
+    /*Text align é para alinhar o texto no centro*/
+}
+
+.foto {
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 0 20px var(--secundaria);
+    border-radius: 50%;
+    border: 2px solid var(--vidro);
+    animation: flutuar 5s ease-in-out infinite;
+    /*A animação é para deixar a foto flutuando, o tempo é de 3 segundos, a função ease-in-out é para deixar mais suave e infinite é para repetir a animação infinitamente*/
+}
+
+@keyframes flutuar{
+    0%,100% {
+        transform: translateY(0);
+
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--primaria);
+    font-weight: bold;
+    margin: 5px;
+}
+
+.paragrafo-subtitulo {
+    font-size: 17px;
+    color: var(--claro);
+}
+
+.sobre {
+    padding: 6rem 2rem;
+}
+
+.sobre-titulo {
+    font-size: 25px;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.sobre-caixa {
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    /*Blur é o desfoque do fundo, quanto maior o número mais desfocado fica*/
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sobre-paragrafo {
+    text-align: center;
+    font-size: 17px;
+}
+
+.projetos {
+    padding: 6rem 2rem;
+}
+
+.projetos-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 25px;
+}
+
+.projetos-caixa {
+    display: grid;
+    /*Grid é para colocar os itens em uma grade, vc colocando o grid, vc habilita varias habilidades*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /*Auto fit é para que os itens se ajustem automaticamente, minmax é para definir o tamanho mínimo e máximo dos itens, repeat é para repetir a regra para todo mundo, 1fr é tudo.*/
+    gap: 20px;
+    /*Gap é o espaçamento entre os itens*/
+    max-width: 1200px;
+    /*Max width é a largura máxima da caixa, se eu colocar width ele vai ficar fixo*/
+    margin: 0 auto;
+    /*Margin é a margem, se eu colocar 0 auto ele vai centralizar a caixa*/
+}
+
+.projetos-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    /*Overflow é para esconder o que passar do tamanho do card*/
+}
+
+.projetos-card:hover {
+    box-shadow: 0 10px 20px var(--secundaria);
+    /*Box shadow é a sombra do card, quanto maior o número mais desfocado fica*/
+    transform: translateY(-15px) scale(1.0);
+    /*Transform é para mover o card para cima quando passar o mouse, o -10px é a distância que ele vai subir, tag scaele é para deixar ele um pouquinho maior*/
+    transition: all 0.7s ease;
+    cursor: pointer;
+    /*Fica a mãozinha em vez da seta do mouse*/
+}
+
+.projetos-imagem {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    /*Object fit é para que a imagem se encaixe no tamanho do card, se eu colocar contain ele vai manter a proporção da imagem*/
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+}
+
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 0, 25;/*Line-height é altura das linhas*/
+
+}
+
+.caixa-texto-projetos {
+    padding: 1.5rem;
+}
+
+.contatos{
+    padding: 6rem 2rem;
+}
+
+.contatos-titulo{
+    margin-bottom: 50px;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+.formulario-contato{
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 6px;
+
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem;
+}
+    
+.campo-form{
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--vidro); 
+    border-radius: 8px;
+    color:var(--claro);
+    outline: none;
+
+
+}
+
+.campo-form:focus{
+    border-color: var(--secundaria);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);            
+    /*Quando o campo estiver selecionado, a borda vai ficar da cor primária*/
+}   
+
+.botao-form{
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.botao-form:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    /*Quando passar o mouse o botão vai subir e ficar com sombra*/
+}
+
+.particulas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /*Z index negativo é para que fique atrás de tudo*/
+    opacity: 0.5;
+    background: 
+    radial-gradient(circle at 10% 20%, var(--secundaria) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
+    var(--maisEscuro);
+}
+
+.rodape {
+    background: rgba(255, 255, 255, 0.02);
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: var(--claro);
+    font-size: 9px;
+}

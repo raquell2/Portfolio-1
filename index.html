@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Raquel | portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="particulas"></div>
+
+
+    <nav class="navegacao">
+        <!--Tag nav serve para menus de nagegação, a tag ul é para listas e li são os itens da listas.-->
+        <ul class="menu">
+            <li><a href="#inicio" class="menu-link">Início</a></li>
+            <li><a href="#sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#contato" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+    <main id="inicio" class="cabecalho">
+        <div>
+            <img src="img/fotoperfil1.jpg" alt="Minha foto" class="foto">
+            <h1>Raquel Feitosa </h1>
+            <p class="paragrafo-subtitulo">Desenvolvedora Front End.</p>
+        </div>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim:</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Olá! Meu nome é Raquel, sou apaixonada por tecnologia e desenvolvimento web.
+                Estou sempre em busca de novos conhecimentos e desafios para crescer profissionalmente. Este portfólio
+                reúne alguns dos meus projetos e experiências.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="img/proj1.jpg" alt="Projeto 1" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Java projeto</h3>
+                    <p class="paragrafo-projetos">Projeto de java, com linguagem em treinamento. Lorem, ipsum dolor sit
+                        amet
+                        consectetur adipisicing elit. Delectus eum explicabo mollitia, voluptatibus officiis quia ut
+                        perspiciatis enim!</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="img/proj2.jpg" alt="Projeto 2" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Flex Box</h3>
+                    <p class="paragrafo-projetos">layouts responsivos de forma simples, alinhando itens tanto na
+                        horizontal
+                        quanto na vertical, além de controlar facilmente espaçamentos e ordens dos elementos na página.
+                    </p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="img/proj3.jpg" alt="Projeto 2" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Web flow</h3>
+                    <p class="paragrafo-projetos">é possível projetar, construir e publicar páginas responsivas usando
+                        uma
+                        interface intuitiva de arrastar e soltar, facilitando o desenvolvimento para quem não tem
+                        conhecimento avançado em código.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contato" class="contatos">
+        <h2 class="contatos-titulo">Entre Em Contato</h2>
+
+        <form class="formulario-contato" id="contato" onsubmit="enviarwhats(event)">
+            <!-- O evento onsubmit é usado para evitar que o formulário seja enviado de forma tradicional, permitindo que o JavaScript manipule o envio.-->
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua mensagem" id="mensagem" rows="6"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Whatsapp</button>
+        </form>
+    </section>
+    <footer class="rodape">
+        <p class="texto-rodape">Desenvolvido por Raquel Feitosa &copy; 2025</p>
+        </footer>
+
+        <!--Código java-->
+        <script>
+            function enviarwhats(event) {
+                event.preventDefault() //Esse preventDefault é usado para evitar que o formulário seja enviado de forma tradicional, permitindo que o JavaScript manipule o envio.
+                const nome = document.getElementById('nome').value; //Esse getelementById é usado para pegar o id do elemento HTML.
+                const mensagem = document.getElementById('mensagem').value;
+                const telefone = '5511977348235'
+
+                const texto = `Olá! Me chamo ${nome}, ${mensagem}` //Aqui é usado template string para concatenar as variáveis nome e mensagem, facilitando a formatação da string.
+                const msgFormatada = encodeURIComponent(texto) //encodeURIComponent é usado para codificar a mensagem, para que ela possa ser enviada corretamente pelo WhatsApp.
+
+                const url = `https://wa.me/${telefone}?text=${msgFormatada}` //Aqui é criada a URL do WhatsApp com o número de telefone e a mensagem formatada.000
+                console.log(url) //console.log é usado para exibir a URL no console do navegador, útil para depuração.
+
+                window.open(url, '_blank') //window.open é usado para abrir a URL em uma nova aba do navegador.
+            }
+        </script>
+       
+</body>
+
+</html>
