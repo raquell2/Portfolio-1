@@ -47,7 +47,8 @@ body {
     /*Justify content é para centralizar os itens*/
 }
 
-.menu-link {
+ul {
+    .menu-link{
     color: var(--claro);
     text-decoration: none;
     /*Tira o sublinhado do link*/
@@ -56,6 +57,7 @@ body {
     position: relative;
     /*Posição relativa é para que eu possa usar o pseudo elemento depois*/
     padding: 0.5rem;
+    }
 }
 
 /*Criando a animação dos menus
@@ -92,17 +94,6 @@ body {
     /*Flex direction é para definir a direção dos itens, se eu colocar row ele vai ficar um do lado do outro*/
     text-align: center;
     /*Text align é para alinhar o texto no centro*/
-}
-
-@media (max-width: 600px) {
-    .menu {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-    .navegacao {
-        padding: 1rem 0.5rem;
-    }
 }
 
 
@@ -313,4 +304,9 @@ h1 {
     text-align: center;
     color: var(--claro);
     font-size: 9px;
+}
+
+.dropdown {
+    display: none;
+    
 }
