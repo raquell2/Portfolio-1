@@ -1,24 +1,63 @@
 @media (max-width: 600px) {
     .menu {
         display: none;
-    }
-    .dropdown {
-       background-color: rgba(15, 23, 42, 0.8);
-       display: flex;
-    }
-    .btn {
-        background-color: rgba(15, 23, 42, 0.5);
-        z-index: 100;
-    }
-    .dropdown-menu{
-        color:#7c3ead;
-    }
-
-    .menu-responsivo {
-        color: #7c3ead;
-        background-color: rgba(15, 23, 42, 0.8);
-        list-style: none;
         margin: 0;
         padding: 0;
-}
+    }
+
+    .dropdown {
+        background-color: rgba(15, 23, 42, 0.8);
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .btn {
+        background-color: rgba(15, 23, 42, 0.8);
+        z-index: 100;
+    }
+
+    .dropdown-menu {
+        background-color: rgba(15, 23, 42, 0.8);
+    }
+
+    ul {
+        .link-responsivo {
+            padding: 5px;
+            color: var(--claro);
+            text-decoration: none;
+            /*Tira o sublinhado do link*/
+            font-weight: 500;
+            /*Define o peso da fonte, quanto mais alto mais grosso fica*/
+            position: relative;
+            /*Posição relativa é para que eu possa usar o pseudo elemento depois*/
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    }
+
+    .link-responsivo::after {
+        content: '';
+        /*o content é obrigatório no before*/
+        height: 2px;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    }
+
+    .link-responsivo:hover::after {
+        width: 100%;
+        /*Quando passar o mouse o tamanho do link vai aumentar*/
+        transition: width 0.3s ease;
+        /*A transição é para deixar mais suave, o tempo é de 0.3 segundos e a função ease é para deixar mais suave*/
+    }
+
+    li {
+        list-style: none;
+    }
 }

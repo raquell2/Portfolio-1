@@ -292,7 +292,7 @@ h1 {
     /*Z index negativo é para que fique atrás de tudo*/
     opacity: 0.5;
     background: 
-    radial-gradient(circle at 10% 20%, var(--secundaria) 0%, transparent 20%),
+    radial-gradient(circle at 10% 20%, var(--secundaria), transparent 20%),
     radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
     var(--maisEscuro);
 }
